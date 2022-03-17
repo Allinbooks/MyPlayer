@@ -1,0 +1,12 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "MMplayer.exe (MMplayer\\MMplayer.exe)",
+      "name": "MMplayer.exe (MMplayer\\MMplayer.exe)"
+    }
+  ]
+}

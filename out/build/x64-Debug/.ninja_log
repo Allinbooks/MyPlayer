@@ -1,0 +1,5 @@
+# ninja log v5
+1	507	6690263755885014	MMThread/CMakeFiles/MMThread.dir/MMThread.cpp.obj	f708e64928c17bbe
+508	557	6690263756309298	MMThread/MMThread.lib	e06b3c343e3ec27d
+1	416	6689670622140550	MMplayer/CMakeFiles/MMplayer.dir/MMplayer.cpp.obj	ea42407bc2dd115f
+557	702	6690263757493056	MMplayer/MMplayer.exe	35f81b88a3a3f74a
