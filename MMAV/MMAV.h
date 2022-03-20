@@ -1,18 +1,13 @@
 #pragma once
-extern "C"
-{
-#include <libavformat/avformat.h>
-}
 
+class MMAVPacketPrivate;
 class MMAVPacket
 {
 public:
 	MMAVPacket();
 	~MMAVPacket();
-private:
-	AVPacket* pkt = nullptr;
+	MMAVPacketPrivate* imp = nullptr;
 };
-
 
 class MMAVReader	
 {
@@ -24,6 +19,5 @@ public:
 	int Close();
 
 	int Read(MMAVPacket* path);
-private:
-	AVFormatContext* formatCtx = nullptr;
+	MMAVPacketPrivate* mmp = nullptr;
 };

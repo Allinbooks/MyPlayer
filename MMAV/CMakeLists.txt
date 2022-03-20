@@ -6,4 +6,4 @@ add_library(
 	MMAV
 	MMAVPacket.cpp
 	MMAVReader.cpp
-)
+ "MMAVPacketPrivate.h")

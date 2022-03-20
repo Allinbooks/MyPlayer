@@ -96,7 +96,8 @@ build MMplayer\CMakeFiles\MMplayer.dir\MMplayer.cpp.obj: CXX_COMPILER__MMplayer_
 build MMplayer\MMplayer.exe: CXX_EXECUTABLE_LINKER__MMplayer_Debug MMplayer\CMakeFiles\MMplayer.dir\MMplayer.cpp.obj | MMThread\MMThread.lib MMAV\MMAV.lib || MMAV\MMAV.lib MMThread\MMThread.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = MMThread\MMThread.lib  MMAV\MMAV.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  LINK_LIBRARIES = MMThread\MMThread.lib  MMAV\MMAV.lib  avcodec.lib  avdevice.lib  avformat.lib  avutil.lib  postproc.lib  swresample.lib  swscale.lib  avfilter.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  LINK_PATH = -LIBPATH:C:\Users\Bob\DOCUME~1\VISUAL~1\MMplayer\MMplayer\..\3rdpart\ffmpeg\lib
   OBJECT_DIR = MMplayer\CMakeFiles\MMplayer.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

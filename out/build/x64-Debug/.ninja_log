@@ -1,5 +1,13 @@
 # ninja log v5
 1	507	6690263755885014	MMThread/CMakeFiles/MMThread.dir/MMThread.cpp.obj	f708e64928c17bbe
+12	142	6693857084629163	MMAV/CMakeFiles/MMAV.dir/MMAVPacket.cpp.obj	ae7fa4fc3127380c
 508	557	6690263756309298	MMThread/MMThread.lib	e06b3c343e3ec27d
-1	416	6689670622140550	MMplayer/CMakeFiles/MMplayer.dir/MMplayer.cpp.obj	ea42407bc2dd115f
-557	702	6690263757493056	MMplayer/MMplayer.exe	35f81b88a3a3f74a
+2	113	6693857653081448	MMAV/CMakeFiles/MMAV.dir/MMAVReader.cpp.obj	70f18269f6a951dd
+1	692	6693936849798868	MMplayer/CMakeFiles/MMplayer.dir/MMplayer.cpp.obj	ea42407bc2dd115f
+599	771	6693829741083672	MMplayer/MMplayer.exe	8fc32bd6c7fac71d
+114	160	6693857653527196	MMAV/MMAV.lib	64f3206c0cc6edd8
+1	183	6693965650812857	MMplayer/MMplayer.exe	750818d636f2dd2f
+2	854	6693968662746490	MMplayer/CMakeFiles/MMplayer.dir/MMplayer.cpp.obj	ea42407bc2dd115f
+864	1019	6693968664115513	MMplayer/MMplayer.exe	750818d636f2dd2f
+1	851	6693977287238294	MMplayer/CMakeFiles/MMplayer.dir/MMplayer.cpp.obj	ea42407bc2dd115f
+852	1000	6693977288505371	MMplayer/MMplayer.exe	750818d636f2dd2f
