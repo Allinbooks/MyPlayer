@@ -1,6 +1,9 @@
 #pragma once
 
+
 class MMAVPacketPrivate;
+class MMAVReaderPrivate;
+class MMAVDecoderPrivate;
 class MMAVPacket
 {
 public:
@@ -19,5 +22,17 @@ public:
 	int Close();
 
 	int Read(MMAVPacket* path);
-	MMAVPacketPrivate* mmp = nullptr;
+	MMAVReaderPrivate* imp = nullptr;
+};
+
+class MMAVDecoder
+{
+public:
+	MMAVDecoder();
+	~MMAVDecoder();
+
+	int Init();
+
+private:
+	MMAVDecoderPrivate* imp = nullptr;
 };

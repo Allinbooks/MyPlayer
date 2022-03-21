@@ -8,6 +8,4 @@ class MMAVPacketPrivate
 {
 public:
 	AVPacket* pkt = nullptr;
-	AVFormatContext* formatCtx = nullptr;
-
 };
