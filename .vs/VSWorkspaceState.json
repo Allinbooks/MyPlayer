@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\3rdpart\\ffmpeg",
     "\\MMAV",
     "\\MMplayer",
     "\\MMThread"
   ],
-  "SelectedNode": "\\MMAV\\MMAV.h",
   "PreviewInSolutionExplorer": false
 }

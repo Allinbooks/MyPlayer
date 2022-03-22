@@ -229,6 +229,14 @@ build MMAV\CMakeFiles\MMAV.dir\MMAVDecoder.cpp.obj: CXX_COMPILER__MMAV_Debug C$:
   TARGET_COMPILE_PDB = MMAV\CMakeFiles\MMAV.dir\MMAV.pdb
   TARGET_PDB = MMAV\MMAV.pdb
 
+build MMAV\CMakeFiles\MMAV.dir\MMAVStream.cpp.obj: CXX_COMPILER__MMAV_Debug C$:\Users\Bob\Documents\Visual$ Studio$ 2022\MMplayer\MMAV\MMAVStream.cpp || cmake_object_order_depends_target_MMAV
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I"C:\Users\Bob\Documents\Visual Studio 2022\MMplayer\MMAV\..\3rdpart\ffmpeg\include"
+  OBJECT_DIR = MMAV\CMakeFiles\MMAV.dir
+  OBJECT_FILE_DIR = MMAV\CMakeFiles\MMAV.dir
+  TARGET_COMPILE_PDB = MMAV\CMakeFiles\MMAV.dir\MMAV.pdb
+  TARGET_PDB = MMAV\MMAV.pdb
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target MMAV
@@ -237,7 +245,7 @@ build MMAV\CMakeFiles\MMAV.dir\MMAVDecoder.cpp.obj: CXX_COMPILER__MMAV_Debug C$:
 #############################################
 # Link the static library MMAV\MMAV.lib
 
-build MMAV\MMAV.lib: CXX_STATIC_LIBRARY_LINKER__MMAV_Debug MMAV\CMakeFiles\MMAV.dir\MMAVPacket.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVReader.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVDecoder.cpp.obj
+build MMAV\MMAV.lib: CXX_STATIC_LIBRARY_LINKER__MMAV_Debug MMAV\CMakeFiles\MMAV.dir\MMAVPacket.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVReader.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVDecoder.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVStream.cpp.obj
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = MMAV\CMakeFiles\MMAV.dir

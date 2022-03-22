@@ -1,6 +1,8 @@
 #include "MMAV.h"
-#include"MMAVReaderPrivate.h"
-#include"MMAVPacketPrivate.h"
+
+#include "MMAVReaderPrivate.h"
+#include "MMAVPacketPrivate.h"
+#include "MMAVStreamPrivate.h"
 
 MMAVReader::MMAVReader()
 {
@@ -46,4 +48,20 @@ int MMAVReader::Read(MMAVPacket* packet)
 	}
 	int res = av_read_frame(imp->formatCtx, packet->imp->pkt);
 	return res;
+}
+
+int MMAVReader::GetStreamCount()
+{
+	return imp->formatCtx->nb_streams;
+}
+
+int MMAVReader::GetStream(MMAVStream* avStream, int streamId)
+{
+	AVStream* ffmpegStream = imp->formatCtx->streams[streamId];
+	
+	avStream->streamIndex = ffmpegStream->index;
+
+	avcodec_parameters_copy(avStream->imp->codecpar, ffmpegStream->codecpar);
+
+	return 0;
 }
