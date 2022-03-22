@@ -1,9 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\3rdpart",
+    "\\3rdpart\\ffmpeg",
+    "\\3rdpart\\ffmpeg\\include",
     "\\MMAV",
     "\\MMplayer",
     "\\MMThread"
   ],
+  "SelectedNode": "\\MMAV\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }
