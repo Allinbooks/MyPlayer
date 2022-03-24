@@ -1,6 +1,8 @@
 #include "MMAV.h"
 #include "MMAVDecoderPrivate.h"
 #include "MMAVStreamPrivate.h"
+#include "MMAVPacketPrivate.h"
+#include "MMAVFramePrivate.h"
 
 
 MMAVDecoder::MMAVDecoder()
@@ -27,7 +29,7 @@ int MMAVDecoder::Init(MMAVStream* stream)
 	avcodec_parameters_to_context(imp->codecContext, stream->imp->codecpar);
 
 	const AVCodec* avCodec = avcodec_find_decoder(imp->codecContext->codec_id);
-	//AVCodecContext *avctx, const AVCodec *codec, AVDictionary **options
+
 	int ret = avcodec_open2(imp->codecContext, avCodec, nullptr);
 	if (ret) {
 		std::cout << "avcodec_open2 fail ret:" << ret << std::endl;
@@ -38,11 +40,25 @@ int MMAVDecoder::Init(MMAVStream* stream)
 }
 int MMAVDecoder::SendPacket(MMAVPacket* pkt)
 {
-	return 0;
+	int ret = 0;
+	if (pkt == nullptr) {
+		ret = avcodec_send_packet(imp->codecContext, nullptr);
+	}
+	else {
+		ret = avcodec_send_packet(imp->codecContext, pkt->imp->pkt);
+	}
+
+	return ret;
 }
 
-int MMAVDecoder::RecvFrame()
+int MMAVDecoder::RecvFrame(MMAVFrame* frame)
 {
+	int ret = avcodec_receive_frame(imp->codecContext, frame->imp->frame);
+	return ret;
+}
 
-	return 0;
+int MMAVDecoder::Close()
+{
+	int ret = avcodec_close(imp->codecContext);
+	return ret;
 }

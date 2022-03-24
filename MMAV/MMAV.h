@@ -5,6 +5,9 @@ class MMAVPacketPrivate;
 class MMAVReaderPrivate;
 class MMAVDecoderPrivate;
 class MMAVStreamPrivate;
+class MMAVFramePrivate;
+
+class MMAVStream;
 
 
 class MMAVPacket
@@ -12,7 +15,16 @@ class MMAVPacket
 public:
 	MMAVPacket();
 	~MMAVPacket();
+	int GetIndex();
 	MMAVPacketPrivate* imp = nullptr;
+};
+
+class MMAVFrame
+{
+public:
+	MMAVFrame();
+	~MMAVFrame();
+	MMAVFramePrivate* imp = nullptr;
 };
 
 class MMAVReader	
@@ -42,8 +54,9 @@ public:
 
 	int SendPacket(MMAVPacket* pkt);
 
-	int RecvFrame();
+	int RecvFrame(MMAVFrame* frame);
 
+	int Close();
 private:
 	MMAVDecoderPrivate* imp = nullptr;
 };

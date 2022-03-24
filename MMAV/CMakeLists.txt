@@ -7,4 +7,5 @@ add_library(
 	MMAVPacket.cpp
 	MMAVReader.cpp
 	MMAVDecoder.cpp
-	MMAVStream.cpp)
+	MMAVStream.cpp
+	MMAVFrame.cpp)

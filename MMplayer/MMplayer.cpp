@@ -53,6 +53,25 @@ int main() {
 		cout << "Open file fail!" << endl;
 		return -1;
 	}
+
+	std::vector<MMAVDecoder*> decoderList;
+
+	int streamCount = reader.GetStreamCount();
+	for (int i = 0; i < streamCount; i++) {
+		MMAVStream avStream;
+		reader.GetStream(&avStream, i);
+
+		cout << "StreamIndex: " << avStream.streamIndex << endl;
+
+		MMAVDecoder* decoder = new MMAVDecoder();
+		int ret = decoder->Init(&avStream);
+		if (ret) {
+			cout << "Init decoder fail" << endl;
+		}
+
+		decoderList.push_back(decoder);
+	}
+
 	while (true)
 	{
 		MMAVPacket pkt;
@@ -60,7 +79,52 @@ int main() {
 		if (ret) {
 			break;
 		}
-		cout << "Read Packet Success" << endl;
+		//cout << "Read Packet Success" << endl;
+
+		int streamIndex = pkt.GetIndex(); //寻找适用的解码器
+
+		MMAVDecoder* decoder = decoderList[streamIndex];
+
+		int ret = decoder->SendPacket(&pkt);
+		if (ret) {
+			continue;
+		}
+		while (true) {
+			MMAVFrame frame;
+			int ret = decoder->RecvFrame(&frame);
+			if (ret) {
+				break; // 获取不到就跳出循环
+			}
+
+			//Recv success
+		}
+		
 	}
+
+	for (int i = 0; i < decoderList.size(); i++) {
+		MMAVDecoder* decoder = decoderList[i];
+		// 清空解码器
+		int ret = decoder->SendPacket(nullptr);
+		while (true) {
+			MMAVFrame frame;
+			int ret = decoder->RecvFrame(&frame);
+			if (ret) {
+				break;
+			}
+
+			//Recv success
+		}
+	}
+
+
+
+
+	reader.Close();
+
+	for (int i = 0; i < decoderList.size(); i++) {
+		decoderList[i]->Close();
+		delete decoderList[i];
+	}
+	decoderList.clear();
 	return 0;
 }
