@@ -24,6 +24,16 @@ class MMAVFrame
 public:
 	MMAVFrame();
 	~MMAVFrame();
+
+	int VideoPrint();
+	int AudioPrint();
+
+	int GetY(unsigned char* y);
+	int GetU(unsigned char* u);
+	int GetV(unsigned char* v);
+
+	int GetW();
+	int GetH();
 	MMAVFramePrivate* imp = nullptr;
 };
 
@@ -37,6 +47,9 @@ public:
 
 	int GetStreamCount();
 	int GetStream(MMAVStream* stream, int streamId);
+
+	int GetVideoStreamIndex();
+	int GetAudioStreamIndex();
 
 	int Close();
 

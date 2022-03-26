@@ -3,6 +3,7 @@
 extern "C"
 {
 #include <libavutil\frame.h>
+#include <libavutil\pixdesc.h>
 }
 class MMAVFramePrivate
 {

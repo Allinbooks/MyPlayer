@@ -48,11 +48,17 @@ int main_tread()
 int main() {
 	MMAVReader reader;
 
-	int ret = reader.Open("A://7.class template 7.mp4");
+	int ret = reader.Open("A://44315a0bc6fb773fc280f0cb97bedde6.mp4");
 	if (ret) {
 		cout << "Open file fail!" << endl;
 		return -1;
 	}
+
+	int videoStreamIndex = reader.GetVideoStreamIndex();
+	int audioStreamIndex = reader.GetAudioStreamIndex();
+
+	cout <<"videoStreamIndex: " << videoStreamIndex << endl;
+	cout <<"audioStreamIndex: " << audioStreamIndex << endl;
 
 	std::vector<MMAVDecoder*> decoderList;
 
@@ -71,6 +77,8 @@ int main() {
 
 		decoderList.push_back(decoder);
 	}
+
+	FILE* f = fopen("A://44315a0bc6fb773fc280f0cb97bedde6.yuv", "wb");
 
 	while (true)
 	{
@@ -95,8 +103,36 @@ int main() {
 			if (ret) {
 				break; // 获取不到就跳出循环
 			}
-
+			
 			//Recv success
+			//判断当前帧是音频还是视频
+			if (streamIndex == videoStreamIndex) {
+				frame.VideoPrint();
+
+				int width = frame.GetW();
+				int height = frame.GetH();
+
+				unsigned char* y = (unsigned char*)malloc(width * height);
+				unsigned char* u = (unsigned char*)malloc(width * height / 4);
+				unsigned char* v = (unsigned char*)malloc(width * height / 4);
+
+				frame.GetY(y);
+				frame.GetU(u);
+				frame.GetV(v);
+
+				fwrite(y, width * height, 1, f);
+				fwrite(u, width * height/4, 1, f);
+				fwrite(v, width * height/4, 1, f);
+
+
+				free(y);
+				free(u);
+				free(v);
+			}
+			if (streamIndex == audioStreamIndex) {
+				frame.AudioPrint();
+			}
+			
 		}
 		
 	}
@@ -117,8 +153,6 @@ int main() {
 	}
 
 
-
-
 	reader.Close();
 
 	for (int i = 0; i < decoderList.size(); i++) {
@@ -126,5 +160,6 @@ int main() {
 		delete decoderList[i];
 	}
 	decoderList.clear();
+	fclose(f);
 	return 0;
 }
