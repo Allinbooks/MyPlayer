@@ -1,12 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\3rdpart",
-    "\\3rdpart\\ffmpeg",
-    "\\3rdpart\\ffmpeg\\include",
-    "\\MMAV",
     "\\MMplayer",
+    "\\MMQueue",
     "\\MMThread"
   ],
+  "SelectedNode": "\\MMplayer\\MMplayer.cpp",
   "PreviewInSolutionExplorer": false
 }

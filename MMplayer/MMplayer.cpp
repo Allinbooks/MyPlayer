@@ -45,7 +45,10 @@ int main_tread()
 	return 0;
 }
 #include "MMAV/MMAV.h"
+#include "MMQueue/MMQueue.h"
+
 int main() {
+	MMQueue<MMAVPacket> packetQueue;
 	MMAVReader reader;
 
 	int ret = reader.Open("A://44315a0bc6fb773fc280f0cb97bedde6.mp4");
@@ -82,18 +85,23 @@ int main() {
 
 	while (true)
 	{
-		MMAVPacket pkt;
-		ret = reader.Read(&pkt);
+		MMAVPacket *pkt = new MMAVPacket();
+
+		ret = reader.Read(pkt);
+
 		if (ret) {
 			break;
 		}
 		//cout << "Read Packet Success" << endl;
 
-		int streamIndex = pkt.GetIndex(); //寻找适用的解码器
+
+		packetQueue.Push(pkt);
+
+		int streamIndex = pkt->GetIndex(); //寻找适用的解码器
 
 		MMAVDecoder* decoder = decoderList[streamIndex];
 
-		int ret = decoder->SendPacket(&pkt);
+		int ret = decoder->SendPacket(pkt);
 		if (ret) {
 			continue;
 		}
@@ -149,9 +157,20 @@ int main() {
 			}
 
 			//Recv success
+
 		}
 	}
 
+	while (packetQueue.Size() > 0) {
+		MMAVPacket* pkt = nullptr;
+		packetQueue.Pop(&pkt);
+
+		printf("Packet Size(): %d\n", packetQueue.Size());
+
+		if (pkt != nullptr) {
+			delete pkt;
+		}
+	}
 
 	reader.Close();
 
