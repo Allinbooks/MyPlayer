@@ -37,6 +37,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMplayer/cmake_install.cmake")
   include("C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMThread/cmake_install.cmake")
   include("C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMAV/cmake_install.cmake")
+  include("C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMPlayerTest/cmake_install.cmake")
 
 endif()
 

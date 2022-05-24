@@ -69,7 +69,7 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 # =============================================================================
 
 # =============================================================================
-# Object build statements for EXECUTABLE target MMplayer
+# Object build statements for STATIC_LIBRARY target MMplayer
 
 
 #############################################
@@ -82,28 +82,33 @@ build MMplayer\CMakeFiles\MMplayer.dir\MMplayer.cpp.obj: CXX_COMPILER__MMplayer_
   INCLUDES = -I"C:\Users\Bob\Documents\Visual Studio 2022\MMplayer\MMplayer\.."
   OBJECT_DIR = MMplayer\CMakeFiles\MMplayer.dir
   OBJECT_FILE_DIR = MMplayer\CMakeFiles\MMplayer.dir
-  TARGET_COMPILE_PDB = MMplayer\CMakeFiles\MMplayer.dir\
+  TARGET_COMPILE_PDB = MMplayer\CMakeFiles\MMplayer.dir\MMplayer.pdb
+  TARGET_PDB = MMplayer\MMplayer.pdb
+
+build MMplayer\CMakeFiles\MMplayer.dir\MMPlayerReaderThread.cpp.obj: CXX_COMPILER__MMplayer_Debug C$:\Users\Bob\Documents\Visual$ Studio$ 2022\MMplayer\MMplayer\MMPlayerReaderThread.cpp || cmake_object_order_depends_target_MMplayer
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I"C:\Users\Bob\Documents\Visual Studio 2022\MMplayer\MMplayer\.."
+  OBJECT_DIR = MMplayer\CMakeFiles\MMplayer.dir
+  OBJECT_FILE_DIR = MMplayer\CMakeFiles\MMplayer.dir
+  TARGET_COMPILE_PDB = MMplayer\CMakeFiles\MMplayer.dir\MMplayer.pdb
   TARGET_PDB = MMplayer\MMplayer.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target MMplayer
+# Link build statements for STATIC_LIBRARY target MMplayer
 
 
 #############################################
-# Link the executable MMplayer\MMplayer.exe
+# Link the static library MMplayer\MMplayer.lib
 
-build MMplayer\MMplayer.exe: CXX_EXECUTABLE_LINKER__MMplayer_Debug MMplayer\CMakeFiles\MMplayer.dir\MMplayer.cpp.obj | MMThread\MMThread.lib MMAV\MMAV.lib || MMAV\MMAV.lib MMThread\MMThread.lib
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
-  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = MMThread\MMThread.lib  MMAV\MMAV.lib  avcodec.lib  avdevice.lib  avformat.lib  avutil.lib  postproc.lib  swresample.lib  swscale.lib  avfilter.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  LINK_PATH = -LIBPATH:C:\Users\Bob\DOCUME~1\VISUAL~1\MMplayer\MMplayer\..\3rdpart\ffmpeg\lib
+build MMplayer\MMplayer.lib: CXX_STATIC_LIBRARY_LINKER__MMplayer_Debug MMplayer\CMakeFiles\MMplayer.dir\MMplayer.cpp.obj MMplayer\CMakeFiles\MMplayer.dir\MMPlayerReaderThread.cpp.obj || MMAV\MMAV.lib MMThread\MMThread.lib
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64
   OBJECT_DIR = MMplayer\CMakeFiles\MMplayer.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = MMplayer\CMakeFiles\MMplayer.dir\
-  TARGET_FILE = MMplayer\MMplayer.exe
-  TARGET_IMPLIB = MMplayer\MMplayer.lib
+  TARGET_COMPILE_PDB = MMplayer\CMakeFiles\MMplayer.dir\MMplayer.pdb
+  TARGET_FILE = MMplayer\MMplayer.lib
   TARGET_PDB = MMplayer\MMplayer.pdb
 
 
@@ -287,19 +292,89 @@ build MMAV\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
 build MMAV\rebuild_cache: phony MMAV\CMakeFiles\rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target MMPlayerTest
+
+
+#############################################
+# Order-only phony target for MMPlayerTest
+
+build cmake_object_order_depends_target_MMPlayerTest: phony || cmake_object_order_depends_target_MMAV cmake_object_order_depends_target_MMThread cmake_object_order_depends_target_MMplayer
+
+build MMPlayerTest\CMakeFiles\MMPlayerTest.dir\Main.cpp.obj: CXX_COMPILER__MMPlayerTest_Debug C$:\Users\Bob\Documents\Visual$ Studio$ 2022\MMplayer\MMPlayerTest\Main.cpp || cmake_object_order_depends_target_MMPlayerTest
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I"C:\Users\Bob\Documents\Visual Studio 2022\MMplayer\MMPlayerTest\.."
+  OBJECT_DIR = MMPlayerTest\CMakeFiles\MMPlayerTest.dir
+  OBJECT_FILE_DIR = MMPlayerTest\CMakeFiles\MMPlayerTest.dir
+  TARGET_COMPILE_PDB = MMPlayerTest\CMakeFiles\MMPlayerTest.dir\
+  TARGET_PDB = MMPlayerTest\MMPlayerTest.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target MMPlayerTest
+
+
+#############################################
+# Link the executable MMPlayerTest\MMPlayerTest.exe
+
+build MMPlayerTest\MMPlayerTest.exe: CXX_EXECUTABLE_LINKER__MMPlayerTest_Debug MMPlayerTest\CMakeFiles\MMPlayerTest.dir\Main.cpp.obj | MMThread\MMThread.lib MMAV\MMAV.lib MMplayer\MMplayer.lib MMThread\MMThread.lib MMAV\MMAV.lib || MMAV\MMAV.lib MMThread\MMThread.lib MMplayer\MMplayer.lib
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = MMThread\MMThread.lib  MMAV\MMAV.lib  MMplayer\MMplayer.lib  avcodec.lib  avdevice.lib  avformat.lib  avutil.lib  postproc.lib  swresample.lib  swscale.lib  avfilter.lib  MMThread\MMThread.lib  MMAV\MMAV.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  LINK_PATH = -LIBPATH:C:\Users\Bob\DOCUME~1\VISUAL~1\MMplayer\MMPLAY~1\..\3rdpart\ffmpeg\lib
+  OBJECT_DIR = MMPlayerTest\CMakeFiles\MMPlayerTest.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = MMPlayerTest\CMakeFiles\MMPlayerTest.dir\
+  TARGET_FILE = MMPlayerTest\MMPlayerTest.exe
+  TARGET_IMPLIB = MMPlayerTest\MMPlayerTest.lib
+  TARGET_PDB = MMPlayerTest\MMPlayerTest.pdb
+
+
+#############################################
+# Utility command for edit_cache
+
+build MMPlayerTest\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D "C:\Users\Bob\Documents\Visual Studio 2022\MMplayer\out\build\x64-Debug\MMPlayerTest" && "C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build MMPlayerTest\edit_cache: phony MMPlayerTest\CMakeFiles\edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build MMPlayerTest\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D "C:\Users\Bob\Documents\Visual Studio 2022\MMplayer\out\build\x64-Debug\MMPlayerTest" && "C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\Bob\Documents\Visual Studio 2022\MMplayer" -B"C:\Users\Bob\Documents\Visual Studio 2022\MMplayer\out\build\x64-Debug""
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build MMPlayerTest\rebuild_cache: phony MMPlayerTest\CMakeFiles\rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
 
 build MMAV: phony MMAV\MMAV.lib
 
 build MMAV.lib: phony MMAV\MMAV.lib
 
+build MMPlayerTest: phony MMPlayerTest\MMPlayerTest.exe
+
+build MMPlayerTest.exe: phony MMPlayerTest\MMPlayerTest.exe
+
 build MMThread: phony MMThread\MMThread.lib
 
 build MMThread.lib: phony MMThread\MMThread.lib
 
-build MMplayer: phony MMplayer\MMplayer.exe
+build MMplayer: phony MMplayer\MMplayer.lib
 
-build MMplayer.exe: phony MMplayer\MMplayer.exe
+build MMplayer.lib: phony MMplayer\MMplayer.lib
 
 # =============================================================================
 # Folder targets.
@@ -309,7 +384,7 @@ build MMplayer.exe: phony MMplayer\MMplayer.exe
 #############################################
 # Folder: C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug
 
-build all: phony MMplayer\all MMThread\all MMAV\all
+build all: phony MMplayer\all MMThread\all MMAV\all MMPlayerTest\all
 
 # =============================================================================
 
@@ -317,6 +392,13 @@ build all: phony MMplayer\all MMThread\all MMAV\all
 # Folder: C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMAV
 
 build MMAV\all: phony MMAV\MMAV.lib
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMPlayerTest
+
+build MMPlayerTest\all: phony MMPlayerTest\MMPlayerTest.exe
 
 # =============================================================================
 
@@ -330,7 +412,7 @@ build MMThread\all: phony MMThread\MMThread.lib
 #############################################
 # Folder: C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMplayer
 
-build MMplayer\all: phony MMplayer\MMplayer.exe
+build MMplayer\all: phony MMplayer\MMplayer.lib
 
 # =============================================================================
 # Built-in targets
@@ -339,14 +421,14 @@ build MMplayer\all: phony MMplayer\MMplayer.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ..\..\..\CMakeLists.txt ..\..\..\MMAV\CMakeLists.txt ..\..\..\MMThread\CMakeLists.txt ..\..\..\MMplayer\CMakeLists.txt C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.22.22022201-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ..\..\..\CMakeLists.txt ..\..\..\MMAV\CMakeLists.txt ..\..\..\MMPlayerTest\CMakeLists.txt ..\..\..\MMThread\CMakeLists.txt ..\..\..\MMplayer\CMakeLists.txt C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.22.22022201-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ..\..\..\CMakeLists.txt ..\..\..\MMAV\CMakeLists.txt ..\..\..\MMThread\CMakeLists.txt ..\..\..\MMplayer\CMakeLists.txt C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.22.22022201-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeSystem.cmake: phony
+build ..\..\..\CMakeLists.txt ..\..\..\MMAV\CMakeLists.txt ..\..\..\MMPlayerTest\CMakeLists.txt ..\..\..\MMThread\CMakeLists.txt ..\..\..\MMplayer\CMakeLists.txt C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.22.22022201-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.22.22022201-MSVC_2\CMakeSystem.cmake: phony
 
 
 #############################################

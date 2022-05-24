@@ -8,4 +8,5 @@ add_library(
 	MMAVReader.cpp
 	MMAVDecoder.cpp
 	MMAVStream.cpp
-	MMAVFrame.cpp)
+	MMAVFrame.cpp
+)

@@ -9,3 +9,6 @@ C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMThread/
 C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMAV/CMakeFiles/MMAV.dir
 C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMAV/CMakeFiles/edit_cache.dir
 C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMAV/CMakeFiles/rebuild_cache.dir
+C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMPlayerTest/CMakeFiles/MMPlayerTest.dir
+C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMPlayerTest/CMakeFiles/edit_cache.dir
+C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug/MMPlayerTest/CMakeFiles/rebuild_cache.dir

@@ -7,7 +7,7 @@ include_directories(../)
 link_directories(../3rdpart/ffmpeg/lib)
 
 # 将源代码添加到此项目的可执行文件。
-add_executable (MMplayer "MMplayer.cpp" "MMplayer.h")
+add_library(MMplayer "MMplayer.cpp" "MMplayer.h" "MMPlayerReaderThread.cpp")
 
 
 target_link_libraries(MMplayer MMThread)
