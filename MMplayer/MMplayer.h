@@ -3,6 +3,8 @@
 
 #pragma once
 #include "MMThread/MMThread.h"
+#include "MMAV/MMAV.h"
+#include "MMQueue/MMQueue.h"
 #include <string>
 
 class MMPlayerReaderThread : public MMThread
@@ -15,6 +17,25 @@ public:
 
 private:
 	std::string path;
+};
+
+class MMPlayerDecoderThread : public MMThread
+{
+public:
+	MMPlayerDecoderThread();
+	~MMPlayerDecoderThread();
+
+	virtual void run();
+
+	//int Init(MMAVStream* stream);
+	int Init(MMAVStream* avstream);
+
+	int PutPacket(MMAVPacket* pkt);
+	int GetPacketQueueSize();
+
+private:
+	MMAVDecoder* decoder = nullptr;
+	MMQueue<MMAVPacket> packetQueue;
 };
 
 class MMplayer {

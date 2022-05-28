@@ -1,0 +1,151 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "MMplayer",
+					"jsonFile" : "directory-MMplayer-Debug-ea414981814d2d964aac.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "MMplayer",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "MMThread",
+					"jsonFile" : "directory-MMThread-Debug-69116a3283447f962b04.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "MMThread",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "MMAV",
+					"jsonFile" : "directory-MMAV-Debug-9a6a0c5381c3e8244a36.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "MMAV",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "MMPlayerTest",
+					"jsonFile" : "directory-MMPlayerTest-Debug-7f9a1b310c8bcdfb21ab.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "MMPlayerTest",
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "MMplayer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "MMAV::@6677401b109558446614",
+					"jsonFile" : "target-MMAV-Debug-d66f721f06e5323a33cb.json",
+					"name" : "MMAV",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "MMPlayerTest::@f722ea13651b92214b14",
+					"jsonFile" : "target-MMPlayerTest-Debug-6a4a58f9bd8c593e6740.json",
+					"name" : "MMPlayerTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "MMThread::@c7532e47e0a7c893fd83",
+					"jsonFile" : "target-MMThread-Debug-d40a721c94d809ef0581.json",
+					"name" : "MMThread",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "MMplayer::@1fe49a34d137c738ecd1",
+					"jsonFile" : "target-MMplayer-Debug-16fd7a5fd5c0d553e2c8.json",
+					"name" : "MMplayer",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Bob/Documents/Visual Studio 2022/MMplayer/out/build/x64-Debug",
+		"source" : "C:/Users/Bob/Documents/Visual Studio 2022/MMplayer"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
