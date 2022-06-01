@@ -93,6 +93,22 @@ build MMplayer\CMakeFiles\MMplayer.dir\MMPlayerReaderThread.cpp.obj: CXX_COMPILE
   TARGET_COMPILE_PDB = MMplayer\CMakeFiles\MMplayer.dir\MMplayer.pdb
   TARGET_PDB = MMplayer\MMplayer.pdb
 
+build MMplayer\CMakeFiles\MMplayer.dir\MMPlayerDecoderThread.cpp.obj: CXX_COMPILER__MMplayer_Debug C$:\Users\Bob\Documents\Visual$ Studio$ 2022\MMplayer\MMplayer\MMPlayerDecoderThread.cpp || cmake_object_order_depends_target_MMplayer
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I"C:\Users\Bob\Documents\Visual Studio 2022\MMplayer\MMplayer\.."
+  OBJECT_DIR = MMplayer\CMakeFiles\MMplayer.dir
+  OBJECT_FILE_DIR = MMplayer\CMakeFiles\MMplayer.dir
+  TARGET_COMPILE_PDB = MMplayer\CMakeFiles\MMplayer.dir\MMplayer.pdb
+  TARGET_PDB = MMplayer\MMplayer.pdb
+
+build MMplayer\CMakeFiles\MMplayer.dir\MMPlayerCtr.cpp.obj: CXX_COMPILER__MMplayer_Debug C$:\Users\Bob\Documents\Visual$ Studio$ 2022\MMplayer\MMplayer\MMPlayerCtr.cpp || cmake_object_order_depends_target_MMplayer
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I"C:\Users\Bob\Documents\Visual Studio 2022\MMplayer\MMplayer\.."
+  OBJECT_DIR = MMplayer\CMakeFiles\MMplayer.dir
+  OBJECT_FILE_DIR = MMplayer\CMakeFiles\MMplayer.dir
+  TARGET_COMPILE_PDB = MMplayer\CMakeFiles\MMplayer.dir\MMplayer.pdb
+  TARGET_PDB = MMplayer\MMplayer.pdb
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target MMplayer
@@ -101,7 +117,7 @@ build MMplayer\CMakeFiles\MMplayer.dir\MMPlayerReaderThread.cpp.obj: CXX_COMPILE
 #############################################
 # Link the static library MMplayer\MMplayer.lib
 
-build MMplayer\MMplayer.lib: CXX_STATIC_LIBRARY_LINKER__MMplayer_Debug MMplayer\CMakeFiles\MMplayer.dir\MMplayer.cpp.obj MMplayer\CMakeFiles\MMplayer.dir\MMPlayerReaderThread.cpp.obj || MMAV\MMAV.lib MMThread\MMThread.lib
+build MMplayer\MMplayer.lib: CXX_STATIC_LIBRARY_LINKER__MMplayer_Debug MMplayer\CMakeFiles\MMplayer.dir\MMplayer.cpp.obj MMplayer\CMakeFiles\MMplayer.dir\MMPlayerReaderThread.cpp.obj MMplayer\CMakeFiles\MMplayer.dir\MMPlayerDecoderThread.cpp.obj MMplayer\CMakeFiles\MMplayer.dir\MMPlayerCtr.cpp.obj || MMAV\MMAV.lib MMThread\MMThread.lib
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = MMplayer\CMakeFiles\MMplayer.dir
@@ -250,6 +266,14 @@ build MMAV\CMakeFiles\MMAV.dir\MMAVFrame.cpp.obj: CXX_COMPILER__MMAV_Debug C$:\U
   TARGET_COMPILE_PDB = MMAV\CMakeFiles\MMAV.dir\MMAV.pdb
   TARGET_PDB = MMAV\MMAV.pdb
 
+build MMAV\CMakeFiles\MMAV.dir\MMAVTime.cpp.obj: CXX_COMPILER__MMAV_Debug C$:\Users\Bob\Documents\Visual$ Studio$ 2022\MMplayer\MMAV\MMAVTime.cpp || cmake_object_order_depends_target_MMAV
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I"C:\Users\Bob\Documents\Visual Studio 2022\MMplayer\MMAV\..\3rdpart\ffmpeg\include"
+  OBJECT_DIR = MMAV\CMakeFiles\MMAV.dir
+  OBJECT_FILE_DIR = MMAV\CMakeFiles\MMAV.dir
+  TARGET_COMPILE_PDB = MMAV\CMakeFiles\MMAV.dir\MMAV.pdb
+  TARGET_PDB = MMAV\MMAV.pdb
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target MMAV
@@ -258,7 +282,7 @@ build MMAV\CMakeFiles\MMAV.dir\MMAVFrame.cpp.obj: CXX_COMPILER__MMAV_Debug C$:\U
 #############################################
 # Link the static library MMAV\MMAV.lib
 
-build MMAV\MMAV.lib: CXX_STATIC_LIBRARY_LINKER__MMAV_Debug MMAV\CMakeFiles\MMAV.dir\MMAVPacket.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVReader.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVDecoder.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVStream.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVFrame.cpp.obj
+build MMAV\MMAV.lib: CXX_STATIC_LIBRARY_LINKER__MMAV_Debug MMAV\CMakeFiles\MMAV.dir\MMAVPacket.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVReader.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVDecoder.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVStream.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVFrame.cpp.obj MMAV\CMakeFiles\MMAV.dir\MMAVTime.cpp.obj
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = MMAV\CMakeFiles\MMAV.dir

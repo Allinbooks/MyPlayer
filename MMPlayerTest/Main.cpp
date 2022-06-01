@@ -2,6 +2,9 @@
 #include <windows.h>
 
 int main() {
+	long long t = MMAVTime::GetTime();
+	printf("t:%lld\n", t);
+
 	MMplayer player("A:/videoTemplate.mp4");
 	int ret = player.Open();
 	if (ret) {

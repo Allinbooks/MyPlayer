@@ -13,22 +13,36 @@ MMplayer::~MMplayer() {
 int MMplayer::Open() {
 	
 
-	if (readerThread == nullptr) {
+	/*if (readerThread == nullptr) {
 		MMPlayerReaderThread* readerThread = new MMPlayerReaderThread(path);
 		readerThread->Start();
 
 		return 0;
-	}
+	}*/
 	
+	if (playerCtr == nullptr) {
+		MMPlayerCtr* playerCtr = new MMPlayerCtr();
+		playerCtr->Start();
+
+		return 0;
+	}
+
+
 	return -1;
 }
 
 
 int MMplayer::Stop() {
-	if (readerThread != nullptr) {
+	/*if (readerThread != nullptr) {
 		readerThread->Stop();
 		readerThread = nullptr;
+	}*/
+
+	if (playerCtr != nullptr) {
+		playerCtr->Stop();
+		playerCtr = nullptr;
 	}
+
 	return 0;
 }
 

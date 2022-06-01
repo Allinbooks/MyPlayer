@@ -34,6 +34,8 @@ public:
 
 	int GetW();
 	int GetH();
+
+	long long GetPts();
 	MMAVFramePrivate* imp = nullptr;
 };
 
@@ -72,6 +74,9 @@ public:
 	int Close();
 private:
 	MMAVDecoderPrivate* imp = nullptr;
+
+	int timebaseNum = 0;
+	int timebaseDen = 0;
 };
 
 class MMAVStream
@@ -80,8 +85,16 @@ public:
 	MMAVStream();
 	~MMAVStream();
 
+	int timebaseNum = 0;
+	int timebaseDen = 0;
 	int streamIndex = -1;
 	MMAVStreamPrivate* imp = nullptr;
 private:
 	
+};
+
+class MMAVTime
+{
+public:
+	static long long GetTime();
 };

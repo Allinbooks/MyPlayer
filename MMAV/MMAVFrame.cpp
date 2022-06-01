@@ -102,3 +102,7 @@ int MMAVFrame::GetV(unsigned char* v)
 	}
 	return 0;
 }
+
+long long MMAVFrame::GetPts() {
+	return (long long)(imp->ptsSec * 1000);
+}

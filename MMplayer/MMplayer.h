@@ -7,22 +7,49 @@
 #include "MMQueue/MMQueue.h"
 #include <string>
 
+enum MMDecoderType {
+	MMDECODER_TYPE_VIDEO = 0,
+	MMDECODER_TYPE_AUDIO
+};
+
+//控制音频和视频解码速度，处理音画不同步
+class MMPlayerCtr : public MMThread {
+public:
+	MMPlayerCtr();
+	~MMPlayerCtr();
+
+	virtual void run();
+
+	int GetVideoQueueSize();
+	int GetAudioQueueSize();
+
+	int PushFrameToVideoQueue(MMAVFrame* frame);
+	int PushFrameToAudioQueue(MMAVFrame* frame);
+private:
+	MMQueue<MMAVFrame> videoQueue;
+	MMQueue<MMAVFrame> audioQueue;
+
+	MMAVFrame* frame = nullptr;
+
+};
+
 class MMPlayerReaderThread : public MMThread
 {
 public:
-	MMPlayerReaderThread(std::string path);
+	MMPlayerReaderThread(std::string path, MMPlayerCtr* playerCtr);
 	~MMPlayerReaderThread();
 
 	virtual void run();
 
 private:
 	std::string path;
+	MMPlayerCtr* playerCtr = nullptr;
 };
 
 class MMPlayerDecoderThread : public MMThread
 {
 public:
-	MMPlayerDecoderThread();
+	MMPlayerDecoderThread(MMPlayerCtr* playerCtr, MMDecoderType type);
 	~MMPlayerDecoderThread();
 
 	virtual void run();
@@ -36,6 +63,10 @@ public:
 private:
 	MMAVDecoder* decoder = nullptr;
 	MMQueue<MMAVPacket> packetQueue;
+
+	MMPlayerCtr* playerCtr = nullptr;
+
+	MMDecoderType type;
 };
 
 class MMplayer {
@@ -55,4 +86,5 @@ public:
 private:
 	std::string path;
 	MMPlayerReaderThread* readerThread = nullptr;
+	MMPlayerCtr* playerCtr = nullptr;
 };

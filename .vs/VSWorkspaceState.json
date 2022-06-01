@@ -1,13 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\3rdpart",
-    "\\3rdpart\\ffmpeg",
-    "\\3rdpart\\ffmpeg\\lib",
-    "\\MMplayer",
-    "\\MMQueue",
-    "\\MMThread"
+    ""
   ],
-  "SelectedNode": "\\MMplayer\\CMakeLists.txt",
+  "SelectedNode": "\\.gitattributes",
   "PreviewInSolutionExplorer": false
 }
