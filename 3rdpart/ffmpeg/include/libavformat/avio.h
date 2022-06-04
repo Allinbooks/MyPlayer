@@ -27,9 +27,8 @@
  */
 
 #include <stdint.h>
-#include <stdio.h>
 
-#include "libavutil/attributes.h"
+#include "libavutil/common.h"
 #include "libavutil/dict.h"
 #include "libavutil/log.h"
 

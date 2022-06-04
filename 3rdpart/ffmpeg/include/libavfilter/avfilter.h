@@ -543,14 +543,7 @@ struct AVFilterLink {
     int h;                      ///< agreed upon image height
     AVRational sample_aspect_ratio; ///< agreed upon sample aspect ratio
     /* These parameters apply only to audio */
-#if FF_API_OLD_CHANNEL_LAYOUT
-    /**
-     * channel layout of current buffer (see libavutil/channel_layout.h)
-     * @deprecated use ch_layout
-     */
-    attribute_deprecated
-    uint64_t channel_layout;
-#endif
+    uint64_t channel_layout;    ///< channel layout of current buffer (see libavutil/channel_layout.h)
     int sample_rate;            ///< samples per second
 
     int format;                 ///< agreed upon media format
@@ -563,8 +556,6 @@ struct AVFilterLink {
      * input link is assumed to be an unchangeable property.
      */
     AVRational time_base;
-
-    AVChannelLayout ch_layout;  ///< channel layout of current buffer (see libavutil/channel_layout.h)
 
     /*****************************************************************
      * All fields below this line are not part of the public API. They
@@ -640,6 +631,11 @@ struct AVFilterLink {
      * called with more samples, it will split them.
      */
     int max_samples;
+
+    /**
+     * Number of channels.
+     */
+    int channels;
 
     /**
      * Number of past frames sent through the link.
