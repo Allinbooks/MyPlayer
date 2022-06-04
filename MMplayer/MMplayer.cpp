@@ -10,7 +10,7 @@ MMplayer::~MMplayer() {
 
 }
 
-int MMplayer::Open() {
+int MMplayer::Open(double time) {
 	
 
 	/*if (readerThread == nullptr) {
@@ -21,7 +21,7 @@ int MMplayer::Open() {
 	}*/
 	
 	if (playerCtr == nullptr) {
-		MMPlayerCtr* playerCtr = new MMPlayerCtr();
+		playerCtr = new MMPlayerCtr(time);
 		playerCtr->Start();
 
 		return 0;
@@ -40,6 +40,7 @@ int MMplayer::Stop() {
 
 	if (playerCtr != nullptr) {
 		playerCtr->Stop();
+		delete playerCtr;
 		playerCtr = nullptr;
 	}
 
@@ -47,16 +48,21 @@ int MMplayer::Stop() {
 }
 
 int MMplayer::Play() {
-
+	if (playerCtr != nullptr) {
+		playerCtr->Play();
+	}
 	return 0;
 }
 
 int MMplayer::Pause() {
-
+	if (playerCtr != nullptr) {
+		playerCtr->Pause();
+	}
 	return 0;
 }
 
 int MMplayer::Seek(double time) {
-
+	Stop();
+	Open(time);
 	return 0;
 }

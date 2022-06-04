@@ -56,6 +56,9 @@ public:
 	int Close();
 
 	int Read(MMAVPacket* path);
+
+	int Seek(double time);
+private:
 	MMAVReaderPrivate* imp = nullptr;
 };
 

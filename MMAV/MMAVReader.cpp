@@ -76,3 +76,14 @@ int MMAVReader::GetAudioStreamIndex()
 {
 	return av_find_best_stream(imp->formatCtx, AVMediaType::AVMEDIA_TYPE_AUDIO, -1, -1, nullptr, NULL);
 }
+
+int MMAVReader::Seek(double time) {
+
+	if (imp->formatCtx == nullptr) {
+		return -1;
+	}
+
+	int64_t timestamp = (int64_t)(time * AV_TIME_BASE);
+	av_seek_frame(imp->formatCtx, -1, timestamp, AVSEEK_FLAG_BACKWARD);
+	return 0;
+}

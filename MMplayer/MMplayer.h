@@ -12,10 +12,15 @@ enum MMDecoderType {
 	MMDECODER_TYPE_AUDIO
 };
 
+enum MMPlayerCtrStatus {
+	MMPLAY_CTR_STATUS_PLAYING = 0,
+	MMPLAY_CTR_STATUS_PAUSEING = 1
+};
+
 //控制音频和视频解码速度，处理音画不同步
 class MMPlayerCtr : public MMThread {
 public:
-	MMPlayerCtr();
+	MMPlayerCtr(double seekTime = 0.0);
 	~MMPlayerCtr();
 
 	virtual void run();
@@ -25,18 +30,25 @@ public:
 
 	int PushFrameToVideoQueue(MMAVFrame* frame);
 	int PushFrameToAudioQueue(MMAVFrame* frame);
+
+	int Play();
+	int Pause();
 private:
 	MMQueue<MMAVFrame> videoQueue;
 	MMQueue<MMAVFrame> audioQueue;
 
 	MMAVFrame* frame = nullptr;
 
+	int status = MMPlayerCtrStatus::MMPLAY_CTR_STATUS_PLAYING;
+
+	double seekTime = 0.0;
+
 };
 
 class MMPlayerReaderThread : public MMThread
 {
 public:
-	MMPlayerReaderThread(std::string path, MMPlayerCtr* playerCtr);
+	MMPlayerReaderThread(std::string path, double seekTime, MMPlayerCtr* playerCtr);
 	~MMPlayerReaderThread();
 
 	virtual void run();
@@ -44,6 +56,7 @@ public:
 private:
 	std::string path;
 	MMPlayerCtr* playerCtr = nullptr;
+	double seekTime = 0.0;
 };
 
 class MMPlayerDecoderThread : public MMThread
@@ -75,7 +88,7 @@ public:
 	~MMplayer();
 
 	// 在Open()时创建一个线程，等待Stop()函数调用时，结束这个线程
-	int Open();
+	int Open(double time=0.0);
 	int Stop();
 
 	int Play();

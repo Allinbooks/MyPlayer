@@ -2,10 +2,11 @@
 #include "MMAV/MMAV.h"
 
 
-MMPlayerReaderThread::MMPlayerReaderThread(std::string _path, MMPlayerCtr* _playerCtr)
+MMPlayerReaderThread::MMPlayerReaderThread(std::string _path, double _seekTime, MMPlayerCtr* _playerCtr)
 {
 	path = _path;
 	playerCtr = _playerCtr;
+	seekTime = _seekTime;
 }
 
 MMPlayerReaderThread::~MMPlayerReaderThread()
@@ -19,6 +20,8 @@ void MMPlayerReaderThread::run()
 	if (ret) {
 		return;
 	}
+
+	reader.Seek(seekTime);
 
 	int videoStreamIndex = reader.GetVideoStreamIndex();
 	int audioStreamIndex = reader.GetAudioStreamIndex();
