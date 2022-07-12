@@ -37,8 +37,6 @@ private:
 	MMQueue<MMAVFrame> videoQueue;
 	MMQueue<MMAVFrame> audioQueue;
 
-	MMAVFrame* frame = nullptr;
-
 	int status = MMPlayerCtrStatus::MMPLAY_CTR_STATUS_PLAYING;
 
 	double seekTime = 0.0;

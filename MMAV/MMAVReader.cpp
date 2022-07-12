@@ -9,11 +9,17 @@ MMAVReader::MMAVReader()
 	imp = new MMAVReaderPrivate();
 	imp->formatCtx =  avformat_alloc_context();
 }
+
 MMAVReader::~MMAVReader()
 {
 	if (imp->formatCtx != nullptr) {
 		avformat_free_context(imp->formatCtx);
 		imp->formatCtx = nullptr;
+	}
+
+	if (imp != nullptr) {
+		delete imp;
+		imp = nullptr;
 	}
 
 }
@@ -32,6 +38,7 @@ int MMAVReader::Open(const char* path)
 
 	return res;
 }
+
 int MMAVReader::Close()
 {
 	if (imp->formatCtx == nullptr) {
@@ -68,10 +75,12 @@ int MMAVReader::GetStream(MMAVStream* avStream, int streamId)
 
 	return 0;
 }
+
 int MMAVReader::GetVideoStreamIndex()
 {
 	return av_find_best_stream(imp->formatCtx, AVMediaType::AVMEDIA_TYPE_VIDEO, -1, -1, nullptr, NULL);
 }
+
 int MMAVReader::GetAudioStreamIndex()
 {
 	return av_find_best_stream(imp->formatCtx, AVMediaType::AVMEDIA_TYPE_AUDIO, -1, -1, nullptr, NULL);

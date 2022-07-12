@@ -92,7 +92,6 @@ public:
 	int timebaseDen = 0;
 	int streamIndex = -1;
 	MMAVStreamPrivate* imp = nullptr;
-private:
 	
 };
 

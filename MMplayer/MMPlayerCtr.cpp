@@ -37,13 +37,14 @@ void MMPlayerCtr::run() {
 		long long sleepDuring = sleepTimeEnd - sleepTimeStart;
 		sleepCountTime += sleepDuring;
 
-
 		//获取当前时间 nowTime
 		long long nowTime = MMAVTime::GetTime();
 
 		//获取当前时间和开始时间的差值 duringTime
 		long long duringTime = nowTime - startTime - sleepCountTime;
 		
+
+		duringTime += (long long)seekTime * 1000;
 		//printf("duringTime:%lld\n", duringTime);
 
 		//从视频缓冲队列中获取一帧是视频
@@ -61,7 +62,7 @@ void MMPlayerCtr::run() {
 		}
 
 		if (videoFrame != nullptr) {
-			if (videoFrame->GetPts() <= (long long)(seekTime * 1000)) {
+			if (videoFrame->GetPts() < (long long)(seekTime * 1000)) {
 				delete videoFrame;
 				videoFrame = nullptr;
 			}

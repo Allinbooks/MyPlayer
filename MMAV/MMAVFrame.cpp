@@ -3,6 +3,11 @@
 
 #include "MMAVFramePrivate.h"
 
+extern "C"
+{
+#include <libavutil/pixdesc.h>
+}
+
 MMAVFrame::MMAVFrame()
 {
 	imp = new MMAVFramePrivate();
@@ -55,7 +60,7 @@ int MMAVFrame::AudioPrint()
 
 	printf("Sample Format: %s\n", str);
 
-
+	free(str);
 
 	for (int i = 0; i < AV_NUM_DATA_POINTERS; i++) {
 		std::cout << "linesize[" << i << "]:" << imp->frame->linesize[i] << std::endl;

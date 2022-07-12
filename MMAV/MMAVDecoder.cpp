@@ -69,6 +69,5 @@ int MMAVDecoder::RecvFrame(MMAVFrame* frame)
 
 int MMAVDecoder::Close()
 {
-	int ret = avcodec_close(imp->codecContext);
-	return ret;
+	return avcodec_close(imp->codecContext);
 }

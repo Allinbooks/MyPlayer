@@ -1,10 +1,10 @@
 #pragma once
-#include "MMAV.h"
+
 extern "C"
 {
-#include <libavutil\frame.h>
-#include <libavutil\pixdesc.h>
+#include <libavformat/avformat.h>
 }
+
 class MMAVFramePrivate
 {
 public:
